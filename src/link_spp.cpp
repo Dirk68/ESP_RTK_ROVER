@@ -20,7 +20,12 @@
 #error "SPP is not enabled in this framework build."
 #endif
 
+// the below pragmas are inserted to avoid the depreceated warning during build.
+// caution, this only works for arduino core below 4.0!
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 static BluetoothSerial SerialBT;
+#pragma GCC diagnostic pop
 
 void linkBegin() {
   SerialBT.begin(LINK_DEVICE_NAME);

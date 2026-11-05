@@ -46,8 +46,13 @@
 // INTERFACEMODE name it. Not the PC's COM port.
 #define GNSS_CMD_PORT "COM1"
 
+// Time the receiver gets to boot after power-up before the first command.
+// Counted from ESP32 start.
+#define GNSS_BOOT_DELAY_MS 10000
+
 // Per-command settle time. The whole sequence costs roughly
-// 2 s + (commands x this), so ~14 s of boot before the bridge comes up.
+// 2 s + (commands x this), so ~14 s plus the boot delay above before the bridge
+// comes up.
 #define GNSS_CMD_WAIT_MS 600
 
 // ---------------------------------------------------------------------------
